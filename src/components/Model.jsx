@@ -10,13 +10,13 @@ const Model = ({scroll, ...props}) => {
         <Canvas style={{ width: "100%", height: "100vh"}} shadows>
         <color attach="background" args={[0x111111]} />
         <ambientLight intensity={2} />
-        <group position={[0, 5, 0]} scale={[2, 2, 2]}>
+        <group position={[0, 15, 0]} scale={[4, 4, 4]}>
             <WhiteShoe />
         </group>
-        <group position={[0, 0, 0]}>
+        <group position={[0, 0, 0]} scale={[2, 2, 2]}>
             <BlackShoe />
         </group>
-        <group position={[0, -5, 0]}>
+        <group position={[0, -15, -2]} scale={[0.8, 0.8, 0.8]}>
             <Computer />
         </group>
         <Environment preset="city" />

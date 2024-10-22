@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <Model scroll={scroll}/>
-      {/* <OverLay ref={overlay} caption={caption} scroll={scroll} /> */}
+      <OverLay ref={overlay} caption={caption} scroll={scroll} />
     </>
   )
 }
