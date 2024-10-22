@@ -3,9 +3,9 @@ const { useFrame } = require("@react-three/fiber");
 const { useRef } = require("react")
 
 
-const WhiteShoe = () => {
+const BlackShoe = () => {
     const ref = useRef();
-    const { nodes, materials } = useGLTF('/models/nike_air_zoom_pegasus_36-transformed.glb');
+    const { nodes, materials } = useGLTF('/models/shoe-draco.glb');
     useFrame((state) => {
         const t = state.clock.getElapsedTime();
         ref.current.rotation.set(Math.cos(t / 4) / 8, Math.sin(t / 3) / 4, 0.15 + Math.sin(t / 2) / 8);
@@ -13,11 +13,12 @@ const WhiteShoe = () => {
     });
     return (
         <group ref={ref}>
-            <mesh receiveShadow castShadow geometry={nodes.defaultMaterial.geometry} material={materials.NikeShoe} />
+            <mesh castShadow geometry={nodes.Object_115.geometry} material={materials['Material.002']} />
+            <mesh castShadow receiveShadow geometry={nodes.Object_119.geometry} material={materials['Material.001']} />
         </group>
     )
 }
 
-useGLTF.preload('/models/nike_air_zoom_pegasus_36-transformed.glb');
+useGLTF.preload('/models/shoe-draco.glb');
 
-export default WhiteShoe
+export default BlackShoe
