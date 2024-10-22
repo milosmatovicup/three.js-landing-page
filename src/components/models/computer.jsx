@@ -3,7 +3,6 @@ const { useGLTF } = require("@react-three/drei");
 const { useFrame } = require("@react-three/fiber");
 const { useRef } = require("react")
 
-
 const Computer = () => {
     const ref = useRef();
     const { nodes, materials } = useGLTF('/models/mac-draco.glb');
