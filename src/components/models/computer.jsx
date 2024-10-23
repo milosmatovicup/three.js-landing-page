@@ -1,7 +1,7 @@
+import { useRef } from "react";
+import { useFrame } from "@react-three/fiber";
+import { useGLTF } from "@react-three/drei";
 import * as THREE from 'three'
-const { useGLTF } = require("@react-three/drei");
-const { useFrame } = require("@react-three/fiber");
-const { useRef } = require("react")
 
 const Computer = () => {
     const ref = useRef();
