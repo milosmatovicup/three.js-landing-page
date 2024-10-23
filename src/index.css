@@ -1,4 +1,7 @@
 @import url("https://rsms.me/inter/inter.css");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 * {
   box-sizing: border-box;
@@ -61,12 +64,10 @@ body {
   position: sticky;
   top: 0px;
   display: inline-block;
-  max-width: 600px;
-  padding: 0;
   padding: 80px;
   color: #a0a0a0;
   line-height: 1.6em;
-  font-size: 15px;
+  font-weight: 500;
   letter-spacing: 1.5px;
 }
 
@@ -112,4 +113,14 @@ body {
   .dot > h1 {
     font-size: 3em;
   }
+}
+
+@font-face {
+  font-family: 'Arima-Bold';
+  src: url('../public/fonts/Arima-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Arima-Regular';
+  src: url('../public/fonts/Arima-Regular.ttf');
 }

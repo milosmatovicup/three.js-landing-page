@@ -320,6 +320,8 @@ module.exports = {
       },
       fontFamily: {
         'sans': ['museo-sans', 'sans-serif'],
+        'arima-bold': ['Arima-Bold'],
+        'arima-regular': ['Arima-Reglar'],
       },
       borderWidth: {
         1: "1px",
