@@ -1,6 +1,4 @@
 import { useFrame, useThree  } from "@react-three/fiber";
-import { useEffect, useRef, useState } from "react";
-import * as THREE from 'three';
 
 export const CameraController = (props) => {
     const { camera } = useThree();
@@ -72,12 +70,8 @@ export const CameraController = (props) => {
     
     useFrame(() => {
         scrollAnimation(props.scroll.current, props.maxHeight);
-        console.log("scroll=", camera.position);
         camera.position.set(outCameraPosition.x  , outCameraPosition.y, outCameraPosition.z);
-        // camera.position.lerp(new THREE.Vector3(outCameraPosition.x, outCameraPosition.y, outCameraPosition.z), 0.08);
         camera.lookAt(outLookPosition.x, outLookPosition.y, outLookPosition.z);
-        // camera.position.set(5, (0.5 - props.scroll.current) * props.maxHeight * 2, 5);
-        // camera.lookAt(0, (0.5 - props.scroll.current) * props.maxHeight * 2, 0);
     });
 
     return null;
