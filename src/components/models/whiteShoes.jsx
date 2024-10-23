@@ -1,7 +1,6 @@
-const { useGLTF } = require("@react-three/drei");
-const { useFrame } = require("@react-three/fiber");
-const { useRef } = require("react")
-
+import { useRef } from "react";
+import { useFrame } from "@react-three/fiber";
+import { useGLTF } from "@react-three/drei";
 
 const WhiteShoe = () => {
     const ref = useRef();
