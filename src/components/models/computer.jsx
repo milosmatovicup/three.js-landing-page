@@ -1,7 +1,8 @@
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-import { useGLTF } from "@react-three/drei";
+import { Html, useGLTF } from "@react-three/drei";
 import * as THREE from 'three'
+import HeroPage from "../contact"
 
 const Computer = () => {
     const ref = useRef();
@@ -20,12 +21,9 @@ const Computer = () => {
                 <mesh material={materials.aluminium} geometry={nodes['Cube008'].geometry} />
                 <mesh material={materials['matte.001']} geometry={nodes['Cube008_1'].geometry} />
                 <mesh geometry={nodes['Cube008_2'].geometry}>
-                    {/* Drei's HTML component can "hide behind" canvas geometry */}
-                    {/* <Html className="content" rotation-x={-Math.PI / 2} position={[0, 0.05, -0.09]} transform occlude>
-                    <div className="wrapper" onPointerDown={(e) => e.stopPropagation()}>
+                    <Html rotation-x={-Math.PI / 2} position={[0, 0.05, -0.09]} occlude transform >
                         <HeroPage />
-                    </div>
-                    </Html> */}
+                    </Html>
                 </mesh>
                 </group>
             </group>
