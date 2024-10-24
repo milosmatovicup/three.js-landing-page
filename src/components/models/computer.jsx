@@ -1,12 +1,19 @@
 import { useRef } from "react";
-import { useFrame } from "@react-three/fiber";
-import { Html, useGLTF } from "@react-three/drei";
+import { useFrame, useLoader } from "@react-three/fiber";
+import { useGLTF } from "@react-three/drei";
 import * as THREE from 'three'
-import HeroPage from "../contact"
+import { TextureLoader } from "three";
 
 const Computer = () => {
     const ref = useRef();
     const { nodes, materials } = useGLTF('/models/mac-draco.glb');
+    const screenLoader = useLoader(TextureLoader, './images/computer-screen.png');
+    const screenTexture = screenLoader.clone();
+    screenTexture.wrapS = THREE.RepeatWrapping;
+    screenTexture.wrapT = THREE.RepeatWrapping;
+    screenTexture.repeat.set(1, 1);
+    screenTexture.repeat.x = -1;
+    screenTexture.rotation = Math.PI;
     useFrame((state) => {
         const t = state.clock.getElapsedTime();
         ref.current.rotation.x = THREE.MathUtils.lerp(ref.current.rotation.x, Math.cos(t / 2) / 20 + 0.25, 0.1);
@@ -21,9 +28,7 @@ const Computer = () => {
                 <mesh material={materials.aluminium} geometry={nodes['Cube008'].geometry} />
                 <mesh material={materials['matte.001']} geometry={nodes['Cube008_1'].geometry} />
                 <mesh geometry={nodes['Cube008_2'].geometry}>
-                    <Html rotation-x={-Math.PI / 2} position={[0, 0.05, -0.09]} occlude transform >
-                        <HeroPage />
-                    </Html>
+                    <meshLambertMaterial map={screenTexture} bumpMap={screenTexture} bumpScale={0.02} side={THREE.DoubleSide} toneMapped={false} />
                 </mesh>
                 </group>
             </group>
