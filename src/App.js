@@ -1,17 +1,41 @@
-import React, { useRef } from "react";
+import React, { Suspense, useEffect, useRef, useState } from "react";
 
 import Model from "./components/Model";
 import OverLay from "./components/OverLay";
+import { PulseLoader } from "react-spinners";
 
 
 function App() {
   const overlay = useRef();
   const caption = useRef();
   const scroll = useRef(0);
+  const [isLoading, setIsLoading] = useState(true);
+
+    const handleLoading = (value) => {
+      console.log("isLoaded=", value);
+      if (value) {
+        setIsLoading(false);
+      }
+    }
+
+    useEffect(() => {
+      console.log('isLoading', isLoading)
+    }, [isLoading])
+    
+
   return (
     <>
-      <Model scroll={scroll}/>
-      <OverLay ref={overlay} caption={caption} scroll={scroll} />
+      <div>
+        {isLoading &&
+          <div className="w-full h-[100vh] bg-primary">
+            <PulseLoader />
+          </div>
+        }
+        <Model scroll={scroll} handleLoading={handleLoading}/>
+        {/* <Suspense fallback={()=>(console.log("loading"))} >
+        </Suspense> */}
+          {/* {!isLoading && <OverLay ref={overlay} caption={caption} scroll={scroll}/>} */}
+      </div>
     </>
   )
 }

@@ -1,10 +1,8 @@
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-import { useGLTF } from "@react-three/drei";
 
-const WhiteShoe = () => {
+const WhiteShoe = ({nodes, materials}) => {
     const ref = useRef();
-    const { nodes, materials } = useGLTF('/models/nike_air_zoom_pegasus_36-transformed.glb');
     useFrame((state) => {
         const t = state.clock.getElapsedTime();
         ref.current.rotation.set(Math.cos(t / 4) / 8, Math.sin(t / 3) / 4, 0.15 + Math.sin(t / 2) / 8);
@@ -17,6 +15,5 @@ const WhiteShoe = () => {
     )
 }
 
-useGLTF.preload('/models/nike_air_zoom_pegasus_36-transformed.glb');
 
 export default WhiteShoe
