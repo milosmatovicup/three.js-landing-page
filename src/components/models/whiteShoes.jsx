@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 
 const WhiteShoe = ({nodes, materials}) => {
+    console.log("whitenode=", nodes)
     const ref = useRef();
     useFrame((state) => {
         const t = state.clock.getElapsedTime();

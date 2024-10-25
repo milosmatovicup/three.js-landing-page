@@ -1,11 +1,8 @@
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
-import { useGLTF } from "@react-three/drei";
 
-
-const BlackShoe = () => {
+const BlackShoe = ({nodes, materials}) => {
     const ref = useRef();
-    const { nodes, materials } = useGLTF('/models/shoe-draco.glb');
     useFrame((state) => {
         const t = state.clock.getElapsedTime();
         ref.current.rotation.set(Math.cos(t / 4) / 8, Math.sin(t / 3) / 4, 0.15 + Math.sin(t / 2) / 8);
@@ -18,7 +15,5 @@ const BlackShoe = () => {
         </group>
     )
 }
-
-useGLTF.preload('/models/shoe-draco.glb');
 
 export default BlackShoe

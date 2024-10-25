@@ -12,7 +12,6 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
     const handleLoading = (value) => {
-      console.log("isLoaded=", value);
       if (value) {
         setIsLoading(false);
       }
@@ -22,7 +21,6 @@ function App() {
       console.log('isLoading', isLoading)
     }, [isLoading])
     
-
   return (
     <>
       <div>
@@ -32,9 +30,7 @@ function App() {
           </div>
         }
         <Model scroll={scroll} handleLoading={handleLoading}/>
-        {/* <Suspense fallback={()=>(console.log("loading"))} >
-        </Suspense> */}
-          {/* {!isLoading && <OverLay ref={overlay} caption={caption} scroll={scroll}/>} */}
+          {!isLoading && <OverLay ref={overlay} caption={caption} scroll={scroll}/>}
       </div>
     </>
   )

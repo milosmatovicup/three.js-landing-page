@@ -1,12 +1,10 @@
 import { useRef } from "react";
 import { useFrame, useLoader } from "@react-three/fiber";
-import { useGLTF } from "@react-three/drei";
 import * as THREE from 'three'
 import { TextureLoader } from "three";
 
-const Computer = () => {
+const Computer = ({nodes, materials}) => {
     const ref = useRef();
-    const { nodes, materials } = useGLTF('/models/mac-draco.glb');
     const screenLoader = useLoader(TextureLoader, './images/computer-screen.png');
     const screenTexture = screenLoader.clone();
     screenTexture.wrapS = THREE.RepeatWrapping;
@@ -41,7 +39,5 @@ const Computer = () => {
         </group>
     )
 }
-
-useGLTF.preload('/models/mac-draco.glb');
 
 export default Computer
